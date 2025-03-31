@@ -1,5 +1,5 @@
 import type { Route } from "./+types/maths";
-import { MathStuff } from "../maths/math-stuff.tsx";
+import { MathStuff } from "../maths/math-stuff";
 
 export function meta({}: Route.MetaArgs) {
   return [
