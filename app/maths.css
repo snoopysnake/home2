@@ -1,0 +1,30 @@
+main {
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  font-size: 44px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+label {
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 5rem;
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  margin: 1rem;
+}
+
+.create {
+  width: 8rem;
+}

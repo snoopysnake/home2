@@ -1,7 +1,8 @@
 import type { Route } from "./+types/maths";
-import { MathStuff } from "../maths/math-stuff";
+import { NavLink } from 'react-router';
+import '../maths.css';
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ }: Route.MetaArgs) {
   return [
     { title: "Alex Chiang | Maths" },
     { name: "description", content: "Alex Chiang Website Maths" },
@@ -11,7 +12,10 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <main>
-      <MathStuff />
+      <h1>alex chiang math stuff.</h1>
+      <ul>
+        <li><NavLink to="/order" end>order of operations practice</NavLink></li>
+      </ul>
     </main>
   );
 }
