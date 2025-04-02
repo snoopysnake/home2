@@ -17,7 +17,9 @@ export default function OrderOfOperations() {
     addition: true,
     subtraction: false,
     multiplication: false,
-    division: false
+    division: false,
+    negative: false,
+    exponent: false
   });
   const [worksheet, setWorksheet] = useState<any>(null);
   const renderRefs = useRef<any[]>([]);
@@ -33,10 +35,10 @@ export default function OrderOfOperations() {
       createWorkSheet(e);
     }
     if (e.key === "ArrowUp") {
-      setQuestionNum(questionNum + 1);
+      setQuestionNum(+questionNum + 1);
     }
     if (e.key === "ArrowDown") {
-      setQuestionNum(questionNum - 1);
+      setQuestionNum(+questionNum - 1);
     }
     if (!/^\d$/.test(e.key) && e.key !== "Backspace" && e.key !== "Delete" && e.key !== "ArrowLeft" && e.key !== "ArrowRight") {
       e.preventDefault();
@@ -74,7 +76,7 @@ export default function OrderOfOperations() {
       <form onSubmit={createWorkSheet}>
         <label>number of questions (1-25):</label>
         <input type="number" name="questionNum" value={questionNum} min="1" max="25"
-          onChange={(e: any) => setQuestionNum(+e.target.value)}
+          onChange={(e: any) => setQuestionNum(e.target.value)}
           onBlur={() => setSelection(1, 25)}
           onKeyDown={(e: any) => inputNumber(e, 1, 25)}
         />
@@ -89,6 +91,14 @@ export default function OrderOfOperations() {
         <div>
           <input type="checkbox" id="multiplication" name="multiplication" checked={options.multiplication} onChange={checkOption} />
           <label htmlFor="multiplication">Multiplication</label>
+        </div>
+        <div>
+          <input type="checkbox" id="negative" name="negative" checked={options.negative} onChange={checkOption} />
+          <label htmlFor="negative">Has negatives</label>
+        </div>
+        <div>
+          <input type="checkbox" id="exponent" name="exponent" checked={options.exponent} onChange={checkOption} />
+          <label htmlFor="exponent">Has exponents</label>
         </div>
         <input className="create" type="submit" value="create worksheet" />
         {worksheet}
