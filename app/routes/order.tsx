@@ -19,9 +19,10 @@ export default function OrderOfOperations() {
     multiplication: false,
     division: false,
     negative: false,
-    exponent: false
+    exponent: false,
+    new: true
   });
-  const [worksheet, setWorksheet] = useState<any>(null);
+  const [worksheet, setWorksheet] = useState<any>([]);
   const renderRefs = useRef<any[]>([]);
 
   useEffect(() => {
@@ -54,13 +55,8 @@ export default function OrderOfOperations() {
 
   const createWorkSheet = (e: any) => {
     e.preventDefault();
-    setWorksheet(
-      <ol>
-        {
-          Array.from({ length: questionNum }, (x, i) => <li ref={ref => { renderRefs.current[i] = ref }} key={i}></li>)
-        }
-      </ol>
-    );
+    const newWorksheet = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { renderRefs.current[i] = ref }} key={i}></li>);
+    setWorksheet( options.new ? newWorksheet : [...worksheet, newWorksheet]);
   }
 
   const checkOption = (e: any) => {
@@ -82,26 +78,32 @@ export default function OrderOfOperations() {
         />
         <div>
           <input type="checkbox" id="addition" name="addition" checked={options.addition} onChange={checkOption} />
-          <label htmlFor="addition">Addition</label>
+          <label htmlFor="addition">addition</label>
         </div>
         <div>
           <input type="checkbox" id="subtraction" name="subtraction" checked={options.subtraction} onChange={checkOption} />
-          <label htmlFor="subtraction">Subtraction</label>
+          <label htmlFor="subtraction">subtraction</label>
         </div>
         <div>
           <input type="checkbox" id="multiplication" name="multiplication" checked={options.multiplication} onChange={checkOption} />
-          <label htmlFor="multiplication">Multiplication</label>
+          <label htmlFor="multiplication">multiplication</label>
         </div>
         <div>
           <input type="checkbox" id="negative" name="negative" checked={options.negative} onChange={checkOption} />
-          <label htmlFor="negative">Has negatives</label>
+          <label htmlFor="negative">has negatives</label>
         </div>
         <div>
           <input type="checkbox" id="exponent" name="exponent" checked={options.exponent} onChange={checkOption} />
-          <label htmlFor="exponent">Has exponents</label>
+          <label htmlFor="exponent">has exponents</label>
         </div>
         <input className="create" type="submit" value="create worksheet" />
-        {worksheet}
+        <div>
+          <input type="checkbox" id="new" name="new" checked={options.new} onChange={checkOption} />
+          <label htmlFor="new">new worksheet</label>
+        </div>
+        <ol>
+          {worksheet}
+        </ol>
       </form>
     </main>
   );

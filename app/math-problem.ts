@@ -6,7 +6,6 @@ export const orderOfOperationsProblem = (options: any) => {
   const numMax = 20;
   let terms = Array.from({ length: Math.floor(Math.random() * termsMax) + termsMin }, () => randomNum(numMin, numMax, options));
   expression += terms[0];
-  console.log(terms)
   for (let i = 1; i < terms.length; i++) {
     let operand = setOperand(options);
     if (operand === '*') {
