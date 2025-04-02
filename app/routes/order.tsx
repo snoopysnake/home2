@@ -12,25 +12,29 @@ export function meta({ }: Route.MetaArgs) {
 
 export default function OrderOfOperations() {
   const [questionNum, setQuestionNum] = useState(5);
+  const [worksheet, setWorksheet] = useState<any>(null);
   const renderRef = useRef(null);
+  const renderRefs = useRef<any>([]);
 
   useEffect(() => {
     if (renderRef.current) {
-      // katex.render("c = \\pm\\sqrt{a^2 + b^2}", renderRef.current, {
-      //   throwOnError: false
-      // });
+      katex.render('', renderRef.current, {
+        throwOnError: false
+      });
     }
   }, []);
 
-  const inputNumber = (e: any) => {
+  const inputNumber = (e: any, min: number, max: number) => {
     if (e.key === "Enter") {
       e.currentTarget.blur();
+      setSelection(min, max);
+      createWorkSheet(e);
     }
     if (e.key === "ArrowUp") {
-      e.current.value++;
+      setQuestionNum(questionNum + 1);
     }
     if (e.key === "ArrowDown") {
-      e.current.value--;
+      setQuestionNum(questionNum - 1);
     }
     if (!/^\d$/.test(e.key) && e.key !== "Backspace" && e.key !== "Delete" && e.key !== "ArrowLeft" && e.key !== "ArrowRight") {
       e.preventDefault();
@@ -44,17 +48,31 @@ export default function OrderOfOperations() {
       setQuestionNum(max);
   }
 
+  const createWorkSheet = (e: any) => {
+    e.preventDefault();
+    setWorksheet(
+      <ol>
+        {
+          Array.from(Array(questionNum), (x, i) => <li key={i}></li>)
+        }
+      </ol>
+    );
+  }
+
   return (
     <main className="content">
       <h1>order of operations practice.</h1>
-      <label>number of questions (1-25):</label>
-      <input type="number" name="questionNum" value={questionNum} min="1" max="25"
-        onChange={(e: any) => setQuestionNum(e.target.value)}
-        onBlur={() => setSelection(1, 25)}
-        onKeyDown={inputNumber}
-      />
-      <input className="create" type="submit" value="create worksheet" />
-      <div ref={renderRef}></div>
+      <form onSubmit={createWorkSheet}>
+        <label>number of questions (1-25):</label>
+        <input type="number" name="questionNum" value={questionNum} min="1" max="25"
+          onChange={(e: any) => setQuestionNum(+e.target.value)}
+          onBlur={() => setSelection(1, 25)}
+          onKeyDown={(e: any) => inputNumber(e, 1, 25)}
+        />
+        <input className="create" type="submit" value="create worksheet" />
+        {worksheet}
+        <div ref={renderRef}></div>
+      </form>
     </main>
   );
 }

@@ -2,6 +2,11 @@ main {
   flex-direction: column;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
 h1 {
   text-align: center;
   font-size: 44px;
