@@ -13,16 +13,11 @@ export function meta({ }: Route.MetaArgs) {
 export default function OrderOfOperations() {
   const [questionNum, setQuestionNum] = useState(5);
   const [worksheet, setWorksheet] = useState<any>(null);
-  const renderRef = useRef(null);
-  const renderRefs = useRef<any>([]);
+  const renderRefs = useRef<any[]>([]);
 
   useEffect(() => {
-    if (renderRef.current) {
-      katex.render('', renderRef.current, {
-        throwOnError: false
-      });
-    }
-  }, []);
+    renderRefs.current.forEach(ref => katex.render('a \\cdot b', ref, { throwOnError: false }));
+  }, [worksheet]);
 
   const inputNumber = (e: any, min: number, max: number) => {
     if (e.key === "Enter") {
@@ -53,11 +48,10 @@ export default function OrderOfOperations() {
     setWorksheet(
       <ol>
         {
-          Array.from(Array(questionNum), (x, i) => <li ref={ref => {renderRefs.current[i] = ref}} key={i}></li>)
+          Array.from(Array(questionNum), (x, i) => <li ref={ref => { renderRefs.current[i] = ref }} key={i}></li>)
         }
       </ol>
     );
-
   }
 
   return (
@@ -72,7 +66,6 @@ export default function OrderOfOperations() {
         />
         <input className="create" type="submit" value="create worksheet" />
         {worksheet}
-        <div ref={renderRef}></div>
       </form>
     </main>
   );
