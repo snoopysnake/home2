@@ -29,5 +29,10 @@
     "typescript": "^5.7.2",
     "vite": "^5.4.16",
     "vite-tsconfig-paths": "^5.1.4"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.6.1",
+    "@tailwindcss/oxide-linux-arm64-gnu": "^4.0.17",
+    "lightningcss-linux-x64-gnu": "^1.29.3"
   }
 }
