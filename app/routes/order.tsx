@@ -56,7 +56,7 @@ export default function OrderOfOperations() {
   const createWorkSheet = (e: any) => {
     e.preventDefault();
     const newWorksheet = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { renderRefs.current[i] = ref }} key={i}></li>);
-    setWorksheet( options.new ? newWorksheet : [...worksheet, newWorksheet]);
+    setWorksheet(options.new ? newWorksheet : [...worksheet, newWorksheet]);
   }
 
   const checkOption = (e: any) => {
@@ -101,10 +101,10 @@ export default function OrderOfOperations() {
           <input type="checkbox" id="new" name="new" checked={options.new} onChange={checkOption} />
           <label htmlFor="new">new worksheet</label>
         </div>
-        <ol>
-          {worksheet}
-        </ol>
       </form>
+      {
+        worksheet.length > 0 && <ol>{worksheet}</ol>
+      }
     </main>
   );
 }
