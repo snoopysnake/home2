@@ -53,10 +53,11 @@ export default function OrderOfOperations() {
     setWorksheet(
       <ol>
         {
-          Array.from(Array(questionNum), (x, i) => <li key={i}></li>)
+          Array.from(Array(questionNum), (x, i) => <li ref={ref => {renderRefs.current[i] = ref}} key={i}></li>)
         }
       </ol>
     );
+
   }
 
   return (
