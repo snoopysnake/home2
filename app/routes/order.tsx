@@ -1,4 +1,5 @@
 import type { Route } from "./+types/order";
+import { NavLink } from 'react-router';
 import { useState, useEffect, useRef } from 'react';
 import katex from 'katex';
 import { orderOfOperationsProblem, answerProblem, parseToLatex } from "~/math-problem";
@@ -31,8 +32,8 @@ export default function OrderOfOperations() {
   const answerRefs = useRef<any[]>([]);
 
   useEffect(() => {
-    const questions:any = [];
-    const answers:any = [];
+    const questions: any = [];
+    const answers: any = [];
     for (let i = 0; i < questionNum; i++) {
       questions.push(orderOfOperationsProblem(options));
       answers.push(answerProblem(questions[i]));
@@ -93,7 +94,7 @@ export default function OrderOfOperations() {
 
   return (
     <main className="content">
-      <h1>alex chiang.</h1>
+      <h1><NavLink to="/" end>alex chiang.</NavLink></h1>
       <h2>order of operations practice.</h2>
       <form onSubmit={createWorkSheet}>
         <label>number of questions (1-25):</label>
