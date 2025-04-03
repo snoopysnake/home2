@@ -19,10 +19,14 @@ export default function OrderOfOperations() {
     multiplication: false,
     division: false,
     negative: false,
-    exponent: false,
-    new: true
+    exponent: false
+  });
+  const [wsOptions, setWsOptions] = useState({
+    new: true,
+    answer: false
   });
   const [worksheet, setWorksheet] = useState<any>([]);
+  const [answerKey, setAnswerKey] = useState<any>([]);
   const renderRefs = useRef<any[]>([]);
 
   useEffect(() => {
@@ -56,7 +60,7 @@ export default function OrderOfOperations() {
   const createWorkSheet = (e: any) => {
     e.preventDefault();
     const newWorksheet = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { renderRefs.current[i] = ref }} key={i}></li>);
-    setWorksheet(options.new ? newWorksheet : [...worksheet, newWorksheet]);
+    setWorksheet(wsOptions.new ? newWorksheet : [...worksheet, newWorksheet]);
   }
 
   const checkOption = (e: any) => {
@@ -64,6 +68,11 @@ export default function OrderOfOperations() {
     const newOptions = { ...options, [name]: checked };
     if (Object.values(newOptions).slice(0,3).filter(check => check).length >= 1)
       setOptions(newOptions);
+  }
+
+  const checkWsOption = (e: any) => {
+    const { name, checked } = e.target;
+    setWsOptions({ ...wsOptions, [name]: checked });
   }
 
   return (
@@ -99,12 +108,19 @@ export default function OrderOfOperations() {
         </div>
         <input className="create" type="submit" value="create questions" />
         <div>
-          <input type="checkbox" id="new" name="new" checked={options.new} onChange={checkOption} />
+          <input type="checkbox" id="new" name="new" checked={wsOptions.new} onChange={checkWsOption} />
           <label htmlFor="new">new worksheet</label>
+        </div>
+        <div>
+          <input type="checkbox" id="answer" name="answer" checked={wsOptions.answer} onChange={checkWsOption} />
+          <label htmlFor="answer">answer key</label>
         </div>
       </form>
       {
         worksheet.length > 0 && <div className="worksheet"><ol>{worksheet}</ol></div>
+      }
+      {
+        answerKey.length > 0 && <div className="worksheet"><ol>{answerKey}</ol></div>
       }
     </main>
   );
