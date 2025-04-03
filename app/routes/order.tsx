@@ -1,7 +1,7 @@
 import type { Route } from "./+types/order";
 import { useState, useEffect, useRef } from 'react';
 import katex from 'katex';
-import { orderOfOperationsProblem } from "~/math-problem";
+import { orderOfOperationsProblem, answerProblem } from "~/math-problem";
 import '../maths.css';
 
 export function meta({ }: Route.MetaArgs) {
@@ -23,14 +23,23 @@ export default function OrderOfOperations() {
   });
   const [wsOptions, setWsOptions] = useState({
     new: true,
-    answer: false
+    answers: false
   });
   const [worksheet, setWorksheet] = useState<any>([]);
   const [answerKey, setAnswerKey] = useState<any>([]);
-  const renderRefs = useRef<any[]>([]);
+  const questionRefs = useRef<any[]>([]);
+  const answerRefs = useRef<any[]>([]);
 
   useEffect(() => {
-    renderRefs.current.filter(ref => ref).forEach(ref => katex.render(orderOfOperationsProblem(options), ref, { throwOnError: false }));
+    const questions:any = [];
+    const answers:any = [];
+    for (let i = 0; i < questionNum; i++) {
+      questions.push(orderOfOperationsProblem(options));
+      answers.push(answerProblem(questions[i]));
+    }
+    questionRefs.current.filter(ref => ref).forEach((ref, i) => katex.render(questions[i], ref, { throwOnError: false })); // create worksheet here
+    answerRefs.current.filter(ref => ref).forEach((ref, j) =>
+      katex.render(wsOptions.answers ? answers[j] : '--', ref, { throwOnError: false })); // create answer key here
   }, [worksheet]);
 
   const inputNumber = (e: any, min: number, max: number) => {
@@ -59,14 +68,19 @@ export default function OrderOfOperations() {
 
   const createWorkSheet = (e: any) => {
     e.preventDefault();
-    const newWorksheet = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { renderRefs.current[i] = ref }} key={i}></li>);
+    const newWorksheet = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { questionRefs.current[i] = ref }} key={i}></li>);
     setWorksheet(wsOptions.new ? newWorksheet : [...worksheet, newWorksheet]);
+    if (wsOptions.answers || answerKey.length > 0) {
+      const newAnswerKey = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { answerRefs.current[i] = ref }} key={i}></li>);
+      setAnswerKey(wsOptions.new ? newAnswerKey : [...answerKey, newAnswerKey]);
+    }
+    else setAnswerKey([]);
   }
 
   const checkOption = (e: any) => {
     const { name, checked } = e.target;
     const newOptions = { ...options, [name]: checked };
-    if (Object.values(newOptions).slice(0,3).filter(check => check).length >= 1)
+    if (Object.values(newOptions).slice(0, 3).filter(check => check).length >= 1)
       setOptions(newOptions);
   }
 
@@ -112,8 +126,8 @@ export default function OrderOfOperations() {
           <label htmlFor="new">new worksheet</label>
         </div>
         <div>
-          <input type="checkbox" id="answer" name="answer" checked={wsOptions.answer} onChange={checkWsOption} />
-          <label htmlFor="answer">answer key</label>
+          <input type="checkbox" id="answers" name="answers" checked={wsOptions.answers} onChange={checkWsOption} />
+          <label htmlFor="answers">answer key</label>
         </div>
       </form>
       {

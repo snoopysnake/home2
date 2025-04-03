@@ -20,6 +20,10 @@ export const orderOfOperationsProblem = (options: any) => {
   return expression;
 }
 
+export const answerProblem = (problem: string) => {
+  return '';
+}
+
 const randomNum = (min: number, max: number, options: any) => {
   // RETURNS STRING
   let num;
