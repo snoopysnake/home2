@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { NavLink } from 'react-router';
 import './welcome.css';
 
 export function Welcome() {
@@ -20,7 +21,7 @@ export function Welcome() {
 
   return (
     <main className="welcome" ref={containerRef}>
-      <h1 style={{ fontSize }}>alex chiang.</h1>
+      <h1 style={{ fontSize }}><NavLink to="/maths" end>alex chiang.</NavLink></h1>
     </main>
   );
 }

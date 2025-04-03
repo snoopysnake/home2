@@ -15,7 +15,7 @@ export default function Home() {
       <h1><NavLink to="/" end>alex chiang.</NavLink></h1>
       <h2>maths practice.</h2>
       <ul>
-        <li><NavLink to="/order/" end>order of operations</NavLink></li>
+        <li><NavLink to="/order" end>order of operations</NavLink></li>
       </ul>
     </main>
   );
