@@ -45,3 +45,21 @@ input {
 .create {
   width: 8rem;
 }
+
+.worksheet {
+  margin: 2.5rem;
+  background-color: white;
+  padding: 2rem;
+  filter: drop-shadow(3px 3px 3px);
+}
+
+.worksheet ol {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 1200px;
+}
+
+.worksheet li {
+  width: 400px;
+  margin-bottom: 20px;
+}

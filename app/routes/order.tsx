@@ -96,14 +96,14 @@ export default function OrderOfOperations() {
           <input type="checkbox" id="exponent" name="exponent" checked={options.exponent} onChange={checkOption} />
           <label htmlFor="exponent">has exponents</label>
         </div>
-        <input className="create" type="submit" value="create worksheet" />
+        <input className="create" type="submit" value="create questions" />
         <div>
           <input type="checkbox" id="new" name="new" checked={options.new} onChange={checkOption} />
           <label htmlFor="new">new worksheet</label>
         </div>
       </form>
       {
-        worksheet.length > 0 && <ol>{worksheet}</ol>
+        worksheet.length > 0 && <div className="worksheet"><ol>{worksheet}</ol></div>
       }
     </main>
   );
