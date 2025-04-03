@@ -19,7 +19,7 @@ export function Welcome() {
   }, []);
 
   return (
-    <main ref={containerRef}>
+    <main className="welcome" ref={containerRef}>
       <h1 style={{ fontSize }}>alex chiang.</h1>
     </main>
   );
