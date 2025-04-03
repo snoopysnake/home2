@@ -97,7 +97,7 @@ export default function OrderOfOperations() {
       <h1><NavLink to="/" end>alex chiang.</NavLink></h1>
       <h2>order of operations practice.</h2>
       <form onSubmit={createWorkSheet}>
-        <label>number of questions (1-25):</label>
+        <label>number of questions (1-25)</label>
         <input type="number" name="questionNum" value={questionNum} min="1" max="25"
           onChange={(e: any) => setQuestionNum(e.target.value)}
           onBlur={() => setSelection(1, 25)}
