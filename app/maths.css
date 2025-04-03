@@ -56,10 +56,11 @@ input {
 .worksheet ol {
   display: inline-flex;
   flex-wrap: wrap;
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .worksheet li {
-  width: 400px;
+  width: 300px;
   margin-bottom: 20px;
 }
