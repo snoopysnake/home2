@@ -61,8 +61,9 @@ export default function OrderOfOperations() {
 
   const checkOption = (e: any) => {
     const { name, checked } = e.target;
-    if (Object.values(options).filter(check => check).length !== 1 || checked)
-      setOptions({ ...options, [name]: checked });
+    const newOptions = { ...options, [name]: checked };
+    if (Object.values(newOptions).slice(0,3).filter(check => check).length >= 1)
+      setOptions(newOptions);
   }
 
   return (
