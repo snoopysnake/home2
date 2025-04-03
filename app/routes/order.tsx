@@ -1,7 +1,7 @@
 import type { Route } from "./+types/order";
 import { useState, useEffect, useRef } from 'react';
 import katex from 'katex';
-import { orderOfOperationsProblem, answerProblem } from "~/math-problem";
+import { orderOfOperationsProblem, answerProblem, parseToLatex } from "~/math-problem";
 import '../maths.css';
 
 export function meta({ }: Route.MetaArgs) {
@@ -12,7 +12,7 @@ export function meta({ }: Route.MetaArgs) {
 }
 
 export default function OrderOfOperations() {
-  const [questionNum, setQuestionNum] = useState(5);
+  const [questionNum, setQuestionNum] = useState(10);
   const [options, setOptions] = useState({
     addition: true,
     subtraction: false,
@@ -37,7 +37,7 @@ export default function OrderOfOperations() {
       questions.push(orderOfOperationsProblem(options));
       answers.push(answerProblem(questions[i]));
     }
-    questionRefs.current.filter(ref => ref).forEach((ref, i) => katex.render(questions[i], ref, { throwOnError: false })); // create worksheet here
+    questionRefs.current.filter(ref => ref).forEach((ref, i) => katex.render(parseToLatex(questions[i]), ref, { throwOnError: false })); // create worksheet here
     answerRefs.current.filter(ref => ref).forEach((ref, j) =>
       katex.render(wsOptions.answers ? answers[j] : '--', ref, { throwOnError: false })); // create answer key here
   }, [worksheet]);
@@ -70,9 +70,11 @@ export default function OrderOfOperations() {
     e.preventDefault();
     const newWorksheet = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { questionRefs.current[i] = ref }} key={i}></li>);
     setWorksheet(wsOptions.new ? newWorksheet : [...worksheet, newWorksheet]);
-    if (wsOptions.answers || answerKey.length > 0) {
-      const newAnswerKey = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { answerRefs.current[i] = ref }} key={i}></li>);
-      setAnswerKey(wsOptions.new ? newAnswerKey : [...answerKey, newAnswerKey]);
+    if (wsOptions.answers || !wsOptions.new) {
+      if (answerKey.length > 0 || wsOptions.new) {
+        const newAnswerKey = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { answerRefs.current[i] = ref }} key={i}></li>);
+        setAnswerKey(wsOptions.new ? newAnswerKey : [...answerKey, newAnswerKey]);
+      }
     }
     else setAnswerKey([]);
   }
