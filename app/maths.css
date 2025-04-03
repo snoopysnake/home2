@@ -54,6 +54,11 @@ ul {
   filter: drop-shadow(3px 3px 3px);
 }
 
+.worksheet h2 {
+  text-align: center;
+  margin: 1rem 0 2.5rem;
+}
+
 .worksheet ol {
   display: inline-flex;
   flex-wrap: wrap;
@@ -65,4 +70,45 @@ ul {
 .worksheet li {
   width: 400px;
   margin-bottom: 20px;
+}
+
+@media print {
+  .hide-print {
+    display: none;
+  }
+
+  .content {
+    margin: 0;
+    display: block;
+  }
+
+  .worksheet {
+    display: inline-block;
+    margin: 0;
+    width: 8.5in;
+    filter: none;
+    break-inside: avoid;
+  }
+
+  .worksheet h2 {
+    text-align: center;
+    margin: -0.25in 0 .5in;
+  }
+
+  .worksheet ol {
+    display: block;
+    margin: 0;
+    break-after: page;
+  }
+  
+  .worksheet li {
+    float: left;
+    font-size: 12px;
+    width: 2.75in;
+    margin-bottom: 0.5in;
+  }
+
+  .break {
+    break-after: page;
+  }
 }

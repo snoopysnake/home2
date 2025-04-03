@@ -32,11 +32,6 @@ export const answerProblem = (problem: string) => {
   return math.evaluate(problem) + '';
 }
 
-export const parseToLatex = (expression: string) => {
-  // expression = expression.replaceAll('*', '\\cdot');
-  return expression.replaceAll(/\*\*\d/g, num => `^{${num.slice(2)}}`);
-}
-
 const randomNum = (min: number, max: number, options: any) => {
   // RETURNS STRING
   let num;
