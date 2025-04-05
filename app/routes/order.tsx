@@ -89,7 +89,7 @@ export default function OrderOfOperations() {
   return (
     <main className="content">
       <div className="hide-print">
-        <h1><NavLink to="/" end>alex chiang.</NavLink></h1>
+        <h1><NavLink to="/" end>ALEX CHIANG</NavLink></h1>
         <h2>order of operations practice.</h2>
         <form onSubmit={createWorkSheet}>
           <label>number of questions (1-25)</label>

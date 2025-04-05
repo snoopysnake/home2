@@ -26,3 +26,8 @@ input, button {
 	cursor: default;
 	color: #1B1212;
 }
+
+@font-face {
+	font-family: Gill Sans Bold Italic;
+	src: url("./Gill Sans Bold Italic.otf") format("opentype");
+}

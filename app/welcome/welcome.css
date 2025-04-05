@@ -5,4 +5,24 @@ main {
 
 h1 {
 	margin: 0;
+	font-family: 'Gill Sans Bold Italic';
+	image-rendering: pixelated;
+}
+
+.logo {
+	width: 80%;
+}
+
+#bg {
+	transform: translateX(-2000px);
+	animation: 1.25s linear forwards 0.5s 1 translate;
+}
+
+@keyframes translate {
+	from {
+		transform: translateX(-2000px);
+	}
+	to {
+		transform: translateX(0);
+	}
 }

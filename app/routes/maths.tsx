@@ -12,7 +12,7 @@ export function meta({ }: Route.MetaArgs) {
 export default function Home() {
   return (
     <main className="content">
-      <h1><NavLink to="/" end>alex chiang.</NavLink></h1>
+      <h1><NavLink to="/" end>ALEX CHIANG</NavLink></h1>
       <h2>maths practice.</h2>
       <ul>
         <li><NavLink to="/order" end>order of operations</NavLink></li>
