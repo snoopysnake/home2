@@ -1,21 +1,41 @@
-main {
-	align-items: center;
-	justify-content: center;
-}
-
 h1 {
 	margin: 0;
 	font-family: 'Gill Sans Bold Italic';
 	image-rendering: pixelated;
 }
 
-.logo {
+.logo-container {
 	width: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-decoration: none;
+	/* cursor: default; */
+	color: #1B1212;
+}
+
+#logo {
+	margin-bottom: 10%;
 }
 
 #bg {
 	transform: translateX(-2000px);
-	animation: 1.25s linear forwards 0.5s 1 translate;
+	animation: 1.25s linear forwards 1.5s 1 translate;
+}
+
+#subtitle {
+	opacity: 0;
+	animation: 0.01s linear forwards 1s 1 show;
+}
+
+.welcome {
+	overflow: hidden;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
 }
 
 @keyframes translate {
@@ -24,5 +44,14 @@ h1 {
 	}
 	to {
 		transform: translateX(0);
+	}
+}
+
+@keyframes show {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }

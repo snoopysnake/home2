@@ -5,6 +5,7 @@ html {
 
 body {
 	margin: 0;
+	height: 100%;
 	background-color: whitesmoke;
 	color: #1B1212;
 	font-family: 'Lora', serif;
@@ -12,19 +13,6 @@ body {
 
 input, button {
 	font-family: 'Lora', serif;
-}
-
-.welcome {
-	overflow: hidden;
-	height: 100vh;
-	display: flex;
-	user-select: none;
-}
-
-.welcome a {
-	text-decoration: none;
-	cursor: default;
-	color: #1B1212;
 }
 
 @font-face {
