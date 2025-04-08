@@ -1,0 +1,28 @@
+.top-logo {
+  height: 60px;
+  display: inline-block;
+  margin: 10px;
+}
+
+#bg2 {
+  transform: translateX(-2000px);
+  animation: translate2 6.25s linear 0s infinite;
+}
+
+@keyframes translate2 {
+  0% {
+    transform: translateX(-2000px);
+  }
+
+  20% {
+    transform: translateX(-2000px);
+  }
+
+  40% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

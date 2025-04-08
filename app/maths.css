@@ -37,7 +37,7 @@ ul {
 
 .content {
   display: flex;
-  margin: 1rem;
+  padding: 1rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;

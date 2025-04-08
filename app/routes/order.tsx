@@ -3,6 +3,7 @@ import { NavLink } from 'react-router';
 import { useState, useEffect, useRef } from 'react';
 import katex from 'katex';
 import { orderOfOperationsProblem, answerProblem } from "~/math-problem";
+import { Logo } from "~/logo/logo";
 import '../maths.css';
 
 export function meta({ }: Route.MetaArgs) {
@@ -89,7 +90,7 @@ export default function OrderOfOperations() {
   return (
     <main className="content">
       <div className="hide-print">
-        <h1><NavLink to="/" end>ALEX CHIANG</NavLink></h1>
+      <Logo />
         <h2>order of operations practice.</h2>
         <form onSubmit={createWorkSheet}>
           <label>number of questions (1-25)</label>
