@@ -8,7 +8,7 @@ body {
 	height: 100%;
 	background-color: whitesmoke;
 	color: #1B1212;
-	font-family: 'Lora', serif;
+	font-family: 'GB Boot', sans-serif;
 }
 
 input, button {
@@ -18,4 +18,9 @@ input, button {
 @font-face {
 	font-family: Gill Sans Bold Italic;
 	src: url("./Gill Sans Bold Italic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: GB Boot;
+	src: url("./GBBoot.ttf") format("truetype");
 }
