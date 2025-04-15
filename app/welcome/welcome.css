@@ -1,6 +1,5 @@
 h1 {
 	margin: 0;
-	font-family: 'Gill Sans Bold Italic';
 	image-rendering: pixelated;
 }
 
@@ -30,6 +29,7 @@ h1 {
 }
 
 .welcome {
+	background-color: whitesmoke;
 	overflow: hidden;
 	height: 100%;
 	display: flex;

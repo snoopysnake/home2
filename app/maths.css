@@ -1,6 +1,7 @@
 form {
   display: flex;
   flex-direction: column;
+  align-items: start;
 }
 
 h1 {
@@ -9,18 +10,19 @@ h1 {
   margin: 0;
 }
 
-a {
-  text-decoration: none;
-  color: black;
-}
-
 label {
   margin-bottom: 0.5rem;
   user-select: none;
 }
 
-input[type="number"] {
-  width: 5rem;
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type="submit"] {
@@ -31,8 +33,9 @@ input {
   margin-bottom: 0.5rem;
 }
 
-ul {
-  margin-left: -40px;
+.katex {
+  font-family: 'Computer Modern';
+  font-size: 20px;
 }
 
 .content {
@@ -45,10 +48,14 @@ ul {
 
 .create {
   width: 8rem;
+  margin-bottom: 1rem;
 }
 
 .worksheet {
+  font-size: 20px;
+  font-family: 'Computer Modern';
   margin: 2.5rem;
+  color: black;
   background-color: white;
   padding: 2rem;
   filter: drop-shadow(3px 3px 3px);
@@ -63,17 +70,22 @@ ul {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: start;
-  max-width: 1200px;
-  width: 100%;
+  width: 1200px;
 }
 
 .worksheet li {
-  width: 400px;
+  flex: 1 1 33.33%;
   margin-bottom: 20px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.nes-field {
+  margin-bottom: 1rem;
 }
 
 @media print {
-  .hide-print {
+  .no-print {
     display: none;
   }
 

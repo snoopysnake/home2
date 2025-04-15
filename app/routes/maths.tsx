@@ -14,10 +14,14 @@ export default function Home() {
   return (
     <main className="content">
       <Logo />
-      <h2>maths practice.</h2>
-      <ul>
-        <li><NavLink to="/order" end>order of operations</NavLink></li>
-      </ul>
+      <div className="nes-container with-title is-centered is-dark">
+        <h1 className="title">Math</h1>
+        <div className="content-box lists">
+          <ul className="nes-list is-disc">
+            <li><NavLink to="/order" end>order of operations</NavLink></li>
+          </ul>
+        </div>
+      </div>
     </main>
   );
 }

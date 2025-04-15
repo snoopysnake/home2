@@ -89,57 +89,60 @@ export default function OrderOfOperations() {
 
   return (
     <main className="content">
-      <div className="hide-print">
       <Logo />
-        <h2>order of operations practice.</h2>
-        <form onSubmit={createWorkSheet}>
-          <label>number of questions (1-25)</label>
-          <input type="number" name="questionNum" value={questionNum} min="1" max="25"
-            onChange={(e: any) => setQuestionNum(e.target.value)}
-            onBlur={() => setSelection(1, 25)}
-            onKeyDown={(e: any) => inputNumber(e, 1, 25)}
-          />
-          <div>
-            <input type="checkbox" id="addition" name="addition" checked={options.addition} onChange={checkOption} />
-            <label htmlFor="addition">addition</label>
-          </div>
-          <div>
-            <input type="checkbox" id="subtraction" name="subtraction" checked={options.subtraction} onChange={checkOption} />
-            <label htmlFor="subtraction">subtraction</label>
-          </div>
-          <div>
-            <input type="checkbox" id="multiplication" name="multiplication" checked={options.multiplication} onChange={checkOption} />
-            <label htmlFor="multiplication">multiplication</label>
-          </div>
-          <div>
-            <input type="checkbox" id="negative" name="negative" checked={options.negative} onChange={checkOption} />
-            <label htmlFor="negative">has negatives</label>
-          </div>
-          <div>
-            <input type="checkbox" id="exponent" name="exponent" checked={options.exponent} onChange={checkOption} />
-            <label htmlFor="exponent">has exponents</label>
-          </div>
-          <input className="create" type="submit" value="create questions" />
-          <div>
-            <input type="checkbox" id="new" name="new" checked={wsOptions.new} onChange={checkWsOption} />
-            <label htmlFor="new">new worksheet</label>
-          </div>
-          {/* <div>
+      <div className="nes-container with-title is-centered is-dark no-print">
+        <h1 className="title">Order of Operations Practice</h1>
+        <div className="content-box">
+          <form onSubmit={createWorkSheet}>
+            <div className="nes-field">
+              <label htmlFor="name_field">Number of questions (1-25)</label>
+              <input type="number" className="nes-input is-dark" name="questionNum" value={questionNum} min="1" max="25"
+                onChange={(e: any) => setQuestionNum(e.target.value)}
+                onBlur={() => setSelection(1, 25)}
+                onKeyDown={(e: any) => inputNumber(e, 1, 25)} />
+            </div>
+            <label>
+              <input type="checkbox" className="nes-checkbox is-dark" id="addition" name="addition" checked={options.addition} onChange={checkOption} />
+              <span>Addition</span>
+            </label>
+            <label>
+              <input type="checkbox" className="nes-checkbox is-dark" id="subtraction" name="subtraction" checked={options.subtraction} onChange={checkOption} />
+              <span>Subtraction</span>
+            </label>
+            <label>
+              <input type="checkbox" className="nes-checkbox is-dark" id="multiplication" name="multiplication" checked={options.multiplication} onChange={checkOption} />
+              <span>Multiplication</span>
+            </label>
+            <label>
+              <input type="checkbox" className="nes-checkbox is-dark" id="negative" name="negative" checked={options.negative} onChange={checkOption} />
+              <span>Negatives</span>
+            </label>
+            <label>
+              <input type="checkbox" className="nes-checkbox is-dark" id="exponent" name="exponent" checked={options.exponent} onChange={checkOption} />
+              <span>Exponents</span>
+            </label>
+            <button className="nes-btn create">Create</button>
+            <label>
+              <input type="checkbox" className="nes-checkbox is-dark" id="new" name="new" checked={wsOptions.new} onChange={checkWsOption} />
+              <span>New Worksheet</span>
+            </label>
+            {/* <div>
             <input type="checkbox" id="answers" name="answers" checked={wsOptions.answers} onChange={checkWsOption} />
             <label htmlFor="answers">answer key</label>
           </div> */}
-        </form>
+          </form>
+        </div>
       </div>
       {
         worksheet.length > 0 && <div className="worksheet">
-          <h2>order of operations worksheet</h2>
+          <h2>Order of Operations Worksheet</h2>
           <ol>{worksheet}</ol>
         </div>
       }
       <div className="break"></div>
       {
         answerKey.length > 0 && <div className="worksheet">
-          <h2>answer key</h2>
+          <h2>Answer Key</h2>
           <ol>{answerKey}</ol>
         </div>
       }

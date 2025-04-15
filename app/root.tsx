@@ -19,17 +19,13 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap",
-  },
-  {
-    rel: "stylesheet",
     href: "https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.css",
     integrity: "sha384-FkTZUsHjYVyYpU6dse+5AzszY5617FqhnLpcMIIAlLKTbdmeVMO/7K6BrdHWM28V",
     crossOrigin: "anonymous",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://unpkg.com/nes.css@2.3.0/css/nes.min.css",
   },
 ];
 

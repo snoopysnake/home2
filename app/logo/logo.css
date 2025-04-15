@@ -1,11 +1,11 @@
 .top-logo {
   height: 60px;
   display: inline-block;
-  margin: 10px;
+  margin: 10px 0 40px;
 }
 
 #bg2 {
-  transform: translateX(-2000px);
+  transform: translateX(-200px);
   animation: translate2 6.25s linear 0s infinite;
 }
 
@@ -25,4 +25,10 @@
   100% {
     transform: translateX(0);
   }
+}
+
+@media print {
+	.top-logo {
+		display: none;
+	}
 }

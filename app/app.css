@@ -1,26 +1,64 @@
+* {
+	box-sizing: border-box;
+}
+
 html {
 	height: 100%;
-	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
 	height: 100%;
-	background-color: whitesmoke;
-	color: #1B1212;
-	font-family: 'GB Boot', sans-serif;
+	background-color: #212529;
+  color: #fff;
+	font-family: 'Kongtext', sans-serif;
+	cursor: auto;
+}
+
+a, button {
+	cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #fff;
 }
 
 input, button {
-	font-family: 'Lora', serif;
+	font-family: 'Kongtext', serif;
+}
+
+ul {
+	list-style-type: square;
+  color: #fff;
+}
+
+.content-box {
+	padding: 40px;
+}
+
+.nes-btn {
+	cursor: pointer;
+}
+
+.nes-list.is-disc li::before {
+	color: #fff; /* bullet point */
+}
+
+.nes-checkbox+span {
+	cursor: pointer;
 }
 
 @font-face {
-	font-family: Gill Sans Bold Italic;
-	src: url("./Gill Sans Bold Italic.otf") format("opentype");
+	font-family: Kongtext;
+	src: url("../kongtext.ttf") format("truetype");
 }
 
 @font-face {
-	font-family: GB Boot;
-	src: url("./GBBoot.ttf") format("truetype");
+	font-family: Computer Modern;
+	src: url("../cmu.ttf") format("truetype");
 }
