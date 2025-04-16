@@ -49,6 +49,9 @@ export default function OrderOfOperations() {
       setSelection(min, max);
       createWorkSheet(e);
     }
+    if (e.key === "Escape") {
+      e.currentTarget.blur();
+    }
     if (e.key === "ArrowUp") {
       setQuestionNum(+questionNum + 1);
     }
@@ -69,10 +72,14 @@ export default function OrderOfOperations() {
 
   const createWorkSheet = (e: any) => {
     e.preventDefault();
-    const newWorksheet = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { questionRefs.current[i] = ref }} key={i}></li>);
-    setWorksheet(wsOptions.new ? newWorksheet : [...worksheet, newWorksheet]);
-    const newAnswerKey = Array.from({ length: questionNum }, (x, i) => <li ref={ref => { answerRefs.current[i] = ref }} key={i}></li>);
-    setAnswerKey(wsOptions.new ? newAnswerKey : [...answerKey, newAnswerKey]);
+    const newWorksheet = Array.from({ length: questionNum }, (x, i) => <li
+      ref={ref => { questionRefs.current[i] = ref }}
+      key={i + (wsOptions.new ? 0 : worksheet.length)}></li>);
+    setWorksheet(wsOptions.new ? newWorksheet : [...worksheet, ...newWorksheet]);
+    const newAnswerKey = Array.from({ length: questionNum }, (x, j) => <li ref={
+      ref => { answerRefs.current[j] = ref }}
+      key={j + (wsOptions.new ? 0 : answerKey.length)}></li>);
+    setAnswerKey(wsOptions.new ? newAnswerKey : [...answerKey, ...newAnswerKey]);
   }
 
   const checkOption = (e: any) => {
@@ -136,14 +143,22 @@ export default function OrderOfOperations() {
       {
         worksheet.length > 0 && <div className="worksheet">
           <h2>Order of Operations Worksheet</h2>
-          <ol>{worksheet}</ol>
+          {
+            Array.from({ length: Math.ceil(worksheet.length / 39) }).map((page, i) =>
+              <ol start={i * 39 + 1} key={i}>{worksheet.slice(i * 39, (i + 1) * 39)}</ol>
+            )
+          }
         </div>
       }
-      <div className="break"></div>
+      <span className="break"></span>
       {
         answerKey.length > 0 && <div className="worksheet">
           <h2>Answer Key</h2>
-          <ol>{answerKey}</ol>
+          {
+            Array.from({ length: Math.ceil(answerKey.length / 39) }).map((page, i) =>
+              <ol start={i * 39 + 1} key={i}>{answerKey.slice(i * 39, (i + 1) * 39)}</ol>
+            )
+          }
         </div>
       }
     </main>
