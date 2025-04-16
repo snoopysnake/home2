@@ -8,6 +8,7 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
+import "nes.css/css/nes.min.css";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
@@ -22,11 +23,7 @@ export const links: Route.LinksFunction = () => [
     href: "https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.css",
     integrity: "sha384-FkTZUsHjYVyYpU6dse+5AzszY5617FqhnLpcMIIAlLKTbdmeVMO/7K6BrdHWM28V",
     crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://unpkg.com/nes.css@2.3.0/css/nes.min.css",
-  },
+  }
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
