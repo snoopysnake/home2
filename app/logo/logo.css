@@ -5,17 +5,17 @@
 }
 
 #bg2 {
-  transform: translateX(-200px);
+  transform: translateX(-2500px);
   animation: translate2 6.25s linear 0s infinite;
 }
 
 @keyframes translate2 {
   0% {
-    transform: translateX(-2000px);
+    transform: translateX(-2500px);
   }
 
-  20% {
-    transform: translateX(-2000px);
+  10% {
+    transform: translateX(-2500px);
   }
 
   40% {

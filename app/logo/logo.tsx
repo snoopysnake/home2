@@ -7,9 +7,9 @@ export function Logo() {
     <NavLink className="top-logo" to="/" end>
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 873 125" version="1.1">
         {/* <title>Alex Chiang</title> */}
-        <rect x="0" y="0" width="900" height="120" fill="rgb(0,14,255)" />
+        <rect x="0" y="0" width="900" height="120" fill="rgb(255,242,0)" />
         <g id="bg2">
-          <rect x="0" y="4" width="900" height="116" fill="rgb(0,14,255)" />
+          <rect x="0" y="4" width="900" height="116" fill="rgb(255,242,0)" />
           <rect x="872.229" y="4" width="218" height="116" fill="rgb(0,217,0)" />
           <g transform="matrix(1,0,0,1,218,0)">
             <rect x="872.229" y="4" width="218" height="116" fill="rgb(255,42,255)" />

@@ -37,6 +37,10 @@ ul {
   color: #fff;
 }
 
+img {
+	image-rendering: pixelated;
+}
+
 .content-box {
 	padding: 40px;
 }

@@ -14,6 +14,12 @@ export default function Home() {
   return (
     <main className="content">
       <Logo />
+      <section>
+        <img className="me" src="../sprite.png" />
+        <div className="nes-balloon from-left is-dark">
+          <h1>About Me</h1>
+        </div>
+      </section>
       <div className="nes-container with-title is-centered is-dark">
         <h1 className="title">Math</h1>
         <div className="content-box lists">
