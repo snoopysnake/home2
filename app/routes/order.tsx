@@ -94,6 +94,8 @@ export default function OrderOfOperations() {
     setWsOptions({ ...wsOptions, [name]: checked });
   }
 
+  const pageProblems = 42;
+
   return (
     <main className="content">
       <Logo />
@@ -142,21 +144,26 @@ export default function OrderOfOperations() {
       </div>
       {
         worksheet.length > 0 && <div className="worksheet">
-          <h2>Order of Operations Worksheet</h2>
+          <h2 className="no-print">Order of Operations Worksheet</h2>
           {
-            Array.from({ length: Math.ceil(worksheet.length / 39) }).map((page, i) =>
-              <ol start={i * 39 + 1} key={i}>{worksheet.slice(i * 39, (i + 1) * 39)}</ol>
+            Array.from({ length: Math.ceil(worksheet.length / pageProblems) }).map((page, i) =>
+              <div className="ws-page">
+                <h2 className="no-screen">Order of Operations Worksheet</h2>
+                <ol start={i * pageProblems + 1} key={i}>{worksheet.slice(i * pageProblems, (i + 1) * pageProblems)}</ol>
+              </div>
             )
           }
         </div>
       }
-      <span className="break"></span>
       {
         answerKey.length > 0 && <div className="worksheet">
-          <h2>Answer Key</h2>
+          <h2 className="no-print">Answer Key</h2>
           {
-            Array.from({ length: Math.ceil(answerKey.length / 39) }).map((page, i) =>
-              <ol start={i * 39 + 1} key={i}>{answerKey.slice(i * 39, (i + 1) * 39)}</ol>
+            Array.from({ length: Math.ceil(answerKey.length / pageProblems) }).map((page, i) =>
+              <div className="ws-page">
+                <h2 className="no-screen">Answer Key</h2>
+                <ol start={i * pageProblems + 1} key={i}>{answerKey.slice(i * pageProblems, (i + 1) * pageProblems)}</ol>
+              </div>
             )
           }
         </div>

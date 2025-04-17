@@ -91,13 +91,21 @@ input {
   margin-bottom: 1rem;
 }
 
+.no-screen {
+  display: none;
+}
+
 @media print {
   .katex {
     font-size: 12px;
   }
-  
+
   .no-print {
     display: none;
+  }
+
+  .no-screen {
+    display: block;
   }
 
   .content {
@@ -107,12 +115,10 @@ input {
   }
 
   .worksheet {
-    display: inline-block;
+    /* display: inline-block; */
     margin: 0;
-    padding: 1in 0.5in;
-    width: 8.5in;
+    padding: 0;
     filter: none;
-    break-inside: avoid;
   }
 
   .worksheet h2 {
@@ -124,29 +130,31 @@ input {
 
   .worksheet ol {
     display: block;
-    width: 7.5in;
-    height: 9in;
-    break-after: page;
+    width: 8.5in;
   }
 
   .worksheet li {
     float: left;
     font-size: 12px;
-    width: 2.5in;
+    width: 2.833in;
     height: 0.3in;
     min-width: auto;
     padding-left: 0;
-    margin-bottom: 0.5in;
   }
 
-  .break {
+  .ws-page {
+    padding: 0.5in;
+    margin: 0.75in;
+    width: 8.5in;
+    height: 11in;
+    border: solid black 2px;
     break-after: page;
   }
 }
 
 @page {
   size: 8.5in 11in;
-  margin: 0.5in;
+  margin: 0;
 }
 
 @media only screen and (max-width: 768px) {
