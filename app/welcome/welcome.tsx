@@ -5,8 +5,7 @@ export function Welcome() {
 
   return (
     <main className="welcome" >
-      {/* <h1 style={{ fontSize }}><NavLink to="/maths" end>ALEX CHIANG</NavLink></h1> */}
-      <NavLink className="logo-container" to="/maths" end>
+      <NavLink className="logo-container" to="/about" end>
         <svg id="logo" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 873 125" version="1.1">
           {/* <title>Alex Chiang</title> */}
           <g id="bg">

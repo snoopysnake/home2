@@ -41,10 +41,6 @@ img {
 	image-rendering: pixelated;
 }
 
-.content-box {
-	padding: 40px;
-}
-
 .nes-btn {
 	cursor: pointer;
 }

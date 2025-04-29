@@ -35,6 +35,10 @@ input {
 
 .me {
   height: 128px;
+  width: 128px;
+  margin-top: 64px;
+  transform: rotate(-10deg);
+  animation: rotate 1s ease-in-out 0s infinite;
 }
 
 .content {
@@ -43,6 +47,29 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.message-box {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.5rem;
+}
+
+.message-box .nes-balloon {
+  margin-bottom: 64px;
+  height: 80px;
+}
+
+.content-box {
+	padding: 40px;
+}
+
+.content-box ul {
+  text-align: left;
+}
+
+.nes-container.mb-40 {
+  margin-bottom: 40px;
 }
 
 .create {
@@ -91,6 +118,20 @@ input {
 
 .no-screen {
   display: none;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(10deg);
+  }
 }
 
 @media print {
