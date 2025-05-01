@@ -36,7 +36,7 @@ input {
 .me {
   height: 128px;
   width: 128px;
-  margin-top: 64px;
+  align-self: end;
   transform: rotate(-10deg);
   animation: rotate 1s ease-in-out 0s infinite;
 }
@@ -51,13 +51,10 @@ input {
 
 .message-box {
   display: flex;
+  justify-content: center;
   flex-direction: row;
   margin-bottom: 1.5rem;
-}
-
-.message-box .nes-balloon {
-  margin-bottom: 64px;
-  height: 80px;
+  width: 100%;
 }
 
 .content-box {
@@ -68,8 +65,18 @@ input {
   text-align: left;
 }
 
-.nes-container.mb-40 {
-  margin-bottom: 40px;
+.full-width {
+  max-width: 800px;
+  width: 100%;
+}
+
+.nes-container.mb {
+  margin-bottom: 64px;
+}
+
+.nes-balloon.custom-balloon {
+  margin-right: 128px;
+  margin-bottom: 96px;
 }
 
 .create {
