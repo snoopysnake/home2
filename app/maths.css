@@ -211,4 +211,17 @@ input {
   .worksheet {
     padding: 1rem;
   }
+
+  .message-box {
+    padding-left: 120px;
+  }
+
+  .nes-balloon.custom-balloon {
+    min-width: 256px;
+  }
+
+  .me {
+    height: 100px;
+    width: 100px;  
+  }
 }

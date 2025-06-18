@@ -109,7 +109,7 @@ export default function Home() {
             <ul className="nes-list is-disc">
               {
                 skillsHeading === skillsText &&
-                skillsArr.slice(DEV_OPS_INDEX, skillsArr.length).map(skill => <li key={skill}>{skill}</li>)
+                skillsArr.slice(DEV_OPS_INDEX + 1, skillsArr.length).map(skill => <li key={skill}>{skill}</li>)
               }
             </ul>
           </div>
