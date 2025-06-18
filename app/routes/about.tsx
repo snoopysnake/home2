@@ -23,17 +23,23 @@ export default function Home() {
   const introText = `I'm a software engineer with over 5 years of experience in full-stack development. I specialize in modern front-end frameworks and building responsive, user-focused web applications.`;
   const skillsText = `Technical Skills`;
   const skillsArrText = [
+    'Front End',
     'JavaScript',
     'Angular',
     'React',
+    'HTML/CSS',
+    'Back End',
     'Node.js',
     'Python',
     'Java',
+    'Dev Ops',
     'Git',
     'Docker',
     'CodeDeploy',
     'Jenkins'
   ];
+  const BACK_END_INDEX = 5;
+  const DEV_OPS_INDEX = 9;
 
   useEffect(() => {
     if (heading.length < headingText.length) {
@@ -44,8 +50,7 @@ export default function Home() {
 
   useEffect(() => {
     if (heading === headingText && intro.length < introText.length) {
-      const delay = intro.length === 0 ? 100 : 25;
-      const timeout = setTimeout(() => setIntro(introText.slice(0, intro.length + 1)), delay);
+      const timeout = setTimeout(() => setIntro(introText.slice(0, intro.length + 1)), 13);
       return () => clearTimeout(timeout);
     }
   }, [heading, intro]);
@@ -86,38 +91,38 @@ export default function Home() {
         <div className="nes-container skills-container with-title is-centered is-dark mb">
           <h2 className="title">{skillsHeading}</h2>
           <div className="content-box lists">
-            <h3>Front End</h3>
+            <h3>{skillsArr[0]}</h3>
             <ul className="nes-list is-disc">
               {
                 skillsHeading === skillsText &&
-                skillsArr.slice(0,3).map(skill => <li key={skill}>{skill}</li>)
+                skillsArr.slice(1, BACK_END_INDEX).map(skill => <li key={skill}>{skill}</li>)
               }
             </ul>
-            <h3>Back End</h3>
+            <h3>{skillsArr[BACK_END_INDEX]}</h3>
             <ul className="nes-list is-disc">
               {
                 skillsHeading === skillsText &&
-                skillsArr.slice(3,6).map(skill => <li key={skill}>{skill}</li>)
+                skillsArr.slice(BACK_END_INDEX + 1, DEV_OPS_INDEX).map(skill => <li key={skill}>{skill}</li>)
               }
             </ul>
-            <h3>Dev Ops</h3>
+            <h3>{skillsArr[DEV_OPS_INDEX]}</h3>
             <ul className="nes-list is-disc">
               {
                 skillsHeading === skillsText &&
-                skillsArr.slice(6,10).map(skill => <li key={skill}>{skill}</li>)
+                skillsArr.slice(DEV_OPS_INDEX, skillsArr.length).map(skill => <li key={skill}>{skill}</li>)
               }
             </ul>
           </div>
         </div>
       }
-      <div className="nes-container with-title is-centered is-dark">
+      {/* <div className="nes-container with-title is-centered is-dark">
         <h2 className="title">Math Worksheets</h2>
         <div className="content-box lists">
           <ul className="nes-list is-disc">
             <li><NavLink to="/order" end>order of operations</NavLink></li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </main>
   );
 }
